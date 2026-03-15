@@ -8,11 +8,19 @@ const createRegistration = async (req, res) => {
     }
 
     try {
+        // Check if email already exists
+        const checkStmt = db.prepare(`SELECT id FROM registrations WHERE email = ? LIMIT 1`);
+        const existingUser = checkStmt.get(email.trim().toLowerCase());
+
+        if (existingUser) {
+            return res.status(409).json({ error: 'This email address is already registered. Each person can only register once.' });
+        }
+
         const insertStmt = db.prepare(`
             INSERT INTO registrations (name, phone, email, college, department, year)
             VALUES (?, ?, ?, ?, ?, ?)
         `);
-        const result = insertStmt.run(name.trim(), phone.trim(), email.trim(), college.trim(), department.trim(), year.trim());
+        const result = insertStmt.run(name.trim(), phone.trim(), email.trim().toLowerCase(), college.trim(), department.trim(), year.trim());
         const registrationId = result.lastInsertRowid;
 
         // Send confirmation email
