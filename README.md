@@ -11,13 +11,12 @@ A simple full-stack event registration system built with **HTML/CSS/JavaScript**
 ## 🗂 Project Structure
 
 ```
-project/
-  frontend/
-    index.html
-    admin.html
-    style.css
-    script.js
-    admin.js
+registrationForm/
+  index.html
+  admin.html
+  style.css
+  script.js
+  admin.js
   backend/
     server.js
     db.js
