@@ -1,0 +1,219 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+    background: linear-gradient(135deg, #1b1f34, #0f1b2c);
+    color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+}
+
+.container {
+    width: 100%;
+    max-width: 420px;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 16px;
+    padding: 28px 24px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
+}
+
+.card h1 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 1.6rem;
+    letter-spacing: 0.02em;
+}
+
+.field {
+    margin-bottom: 14px;
+}
+
+.field label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 0.95rem;
+    opacity: 0.85;
+}
+
+.field input,
+.field select {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    background: rgba(255, 255, 255, 0.07);
+    color: #fff;
+    font-size: 1rem;
+}
+
+.field select {
+    background: rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 16px;
+    padding-right: 40px;
+}
+
+.field select option {
+    background: #1b1f34;
+    color: #ffffff;
+    padding: 8px;
+}
+
+.field input:focus,
+.field select:focus {
+    outline: none;
+    border-color: rgba(81, 203, 238, 0.7);
+    box-shadow: 0 0 0 3px rgba(81, 203, 238, 0.18);
+}
+
+.btn {
+    width: 100%;
+    padding: 12px 14px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #0f9bfe, #4a68ff);
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+    opacity: 0.95;
+}
+
+.message {
+    margin-top: 18px;
+    padding: 12px 14px;
+    border-radius: 12px;
+    background: rgba(75, 200, 134, 0.18);
+    border: 1px solid rgba(75, 200, 134, 0.35);
+    color: #d4f7e3;
+}
+
+.message.hidden {
+    display: none;
+}
+
+.qr-section {
+    margin-top: 24px;
+    text-align: center;
+    opacity: 0.9;
+}
+
+.qr-section h2 {
+    margin-bottom: 4px;
+    font-size: 1rem;
+}
+
+.qr-section p {
+    margin: 0 0 14px;
+    font-size: 0.9rem;
+    opacity: 0.75;
+}
+
+#qrCanvas {
+    width: 160px;
+    height: 160px;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 12px;
+}
+
+.dashboardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.filters {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin: 20px 0 12px;
+    align-items: center;
+}
+
+.filter-btn {
+    width: auto;
+    padding: 10px 14px;
+    min-width: 110px;
+    font-size: 0.9rem;
+}
+
+.filter-btn.active {
+    background: rgba(20, 140, 220, 0.9);
+}
+
+#searchInput {
+    flex: 1;
+    padding: 10px 12px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.07);
+    color: #fff;
+}
+
+.tableWrapper {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+thead th {
+    text-align: left;
+    padding: 10px 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.03em;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+tbody td {
+    padding: 10px 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.9rem;
+    opacity: 0.95;
+}
+
+@media (max-width: 560px) {
+    .container {
+        max-width: 100%;
+    }
+
+    .dashboardHeader {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .actions {
+        justify-content: space-between;
+    }
+}

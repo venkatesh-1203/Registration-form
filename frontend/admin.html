@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <main class="container">
+        <div class="card" id="loginCard">
+            <h1>Admin Login</h1>
+            <form id="adminLoginForm">
+                <div class="field">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" required />
+                </div>
+                <div class="field">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required />
+                </div>
+                <button class="btn" type="submit">Log in</button>
+            </form>
+            <div id="adminMessage" class="message hidden"></div>
+        </div>
+
+        <div class="card hidden" id="dashboardCard">
+            <div class="dashboardHeader">
+                <h1>Registrations</h1>
+                <div class="actions">
+                    <button class="btn" id="logoutBtn" type="button">Log out</button>
+                    <button class="btn" id="exportCsvBtn" type="button">Export CSV</button>
+                </div>
+            </div>
+
+            <div class="filters">
+                <input id="searchInput" placeholder="Search by name, email, phone" />
+            </div>
+
+            <div class="tableWrapper">
+                <table id="registrationsTable">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Phone</th>
+                            <th>Email</th>
+                            <th>College</th>
+                            <th>Dept</th>
+                            <th>Year</th>
+                            <th>Registered At</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <script src="admin.js"></script>
+</body>
+
+</html>
